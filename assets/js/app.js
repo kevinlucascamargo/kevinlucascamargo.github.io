@@ -317,7 +317,7 @@
           "</div>" +
         "</div>" +
         '<figure class="hero__photo">' +
-          '<img src="assets/img/kevin.jpg" alt="' + esc(h.photoAlt) + '" width="1183" height="857" fetchpriority="high" decoding="async">' +
+          '<img src="assets/img/kevin.jpg" alt="' + esc(h.photoAlt) + '" width="720" height="900" fetchpriority="high" decoding="async">' +
         "</figure>" +
       "</div>";
 

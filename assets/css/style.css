@@ -169,16 +169,16 @@ strong { font-weight: 620; }
 .btn--ghost { border-color: var(--line); color: var(--ink); }
 .btn--ghost:hover { border-color: var(--muted); background: var(--bg-alt); }
 
-.hero__in { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.hero__in { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .hero__photo { margin: 0; }
 .hero__photo img {
   display: block; width: 100%; height: auto; border-radius: 18px;
   border: 1px solid var(--line); box-shadow: var(--shadow-lg);
-  object-fit: cover; aspect-ratio: 4 / 3;
+  object-fit: cover; aspect-ratio: 4 / 5;
 }
 @media (max-width: 900px) {
   .hero__in { grid-template-columns: 1fr; }
-  .hero__photo { order: -1; max-width: 280px; }
+  .hero__photo { order: -1; max-width: 232px; }
   .hero__lead { max-width: none; }
 }
 
