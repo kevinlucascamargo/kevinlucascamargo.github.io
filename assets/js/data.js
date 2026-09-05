@@ -39,17 +39,15 @@ window.CONTENT = {
   },
 
   stats: {
-    icons: ["tech", "product", "company", "market"],
+    icons: ["tech", "product", "market"],
     pt: [
       { n: "9", l: "anos em tecnologia" },
       { n: "6", l: "anos em produto" },
-      { n: "4", l: "empresas como PM" },
       { n: "7", l: "mercados" }
     ],
     en: [
       { n: "9", l: "years in tech" },
       { n: "6", l: "years in product" },
-      { n: "4", l: "companies as a PM" },
       { n: "7", l: "industries" }
     ]
   },
