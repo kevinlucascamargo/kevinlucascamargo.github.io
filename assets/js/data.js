@@ -13,8 +13,8 @@ window.CONTENT = {
   },
 
   nav: {
-    pt: { about: "Sobre", work: "Trajetória", cases: "Cases", toolkit: "Como trabalho", contact: "Contato" },
-    en: { about: "About", work: "Career", cases: "Cases", toolkit: "How I work", contact: "Contact" }
+    pt: { about: "Sobre", markets: "Mercados", work: "Trajetória", cases: "Cases", toolkit: "Como trabalho", contact: "Contato" },
+    en: { about: "About", markets: "Industries", work: "Career", cases: "Cases", toolkit: "How I work", contact: "Contact" }
   },
 
   hero: {
@@ -24,7 +24,8 @@ window.CONTENT = {
       lead: "Transformo operações complexas em produtos e modelos que a organização consegue <em>medir, explicar e evoluir</em>.",
       body: "Trabalho onde o problema ainda não tem formato: processo não documentado, dado em que ninguém confia, incentivo que não fecha a conta. Meu trabalho é dar estrutura a isso — e deixar algo que continua rodando depois que eu saio.",
       ctaCases: "Ver os cases",
-      ctaContact: "Falar comigo"
+      ctaContact: "Falar comigo",
+      photoAlt: "Kevin Lucas Camargo"
     },
     en: {
       kicker: "Product Manager · Product Growth · AI Product",
@@ -32,22 +33,23 @@ window.CONTENT = {
       lead: "I turn complex operations into products and models an organization can <em>measure, explain and evolve</em>.",
       body: "I work where the problem has no shape yet: undocumented processes, data nobody trusts, incentives that don't add up. My job is to give that structure — and leave something that keeps running after I'm gone.",
       ctaCases: "See the cases",
-      ctaContact: "Get in touch"
+      ctaContact: "Get in touch",
+      photoAlt: "Kevin Lucas Camargo"
     }
   },
 
   stats: {
     pt: [
       { n: "9", l: "anos em tecnologia" },
-      { n: "5", l: "anos em produto" },
-      { n: "7", l: "empresas" },
-      { n: "5", l: "setores" }
+      { n: "6", l: "anos em produto" },
+      { n: "4", l: "empresas como PM" },
+      { n: "7", l: "mercados" }
     ],
     en: [
       { n: "9", l: "years in tech" },
-      { n: "5", l: "years in product" },
-      { n: "7", l: "companies" },
-      { n: "5", l: "industries" }
+      { n: "6", l: "years in product" },
+      { n: "4", l: "companies as a PM" },
+      { n: "7", l: "industries" }
     ]
   },
 
@@ -56,6 +58,7 @@ window.CONTENT = {
       title: "Sobre",
       p: [
         "Comecei no suporte técnico, virei analista, depois Product Owner, e hoje atuo como Product Manager sênior e analista de negócio em projetos de transformação. Essa origem importa: aprendi o produto pelo lado de quem aguenta a operação quando ela quebra.",
+        "Ainda como analista N2 eu já trabalhava com elementos de produto — priorização, business case da área, passagem de bastão com desenvolvimento, construção de processo. A mudança de cargo veio depois do trabalho, não antes.",
         "Nos últimos anos me especializei em problemas de <strong>modelo operacional e dado</strong> — os casos em que a empresa já tem sistema, já tem número, e mesmo assim não consegue decidir. Normalmente não falta ferramenta: falta explicabilidade, dono e um critério que sobreviva à troca de gestor.",
         "Sou orientado a métrica, uso SQL para não depender de terceiros na análise, e tenho experiência em SaaS com foco em PLG, Growth e Product Ops. Uso IA de forma pesada no dia a dia — não como enfeite, mas para encurtar ciclo de descoberta e de escrita.",
         "Meu lema é <em>“Work Smart, Play Better”</em>."
@@ -65,6 +68,7 @@ window.CONTENT = {
       title: "About",
       p: [
         "I started in technical support, became an analyst, then a Product Owner, and today I work as a senior Product Manager and business analyst on transformation projects. That origin matters: I learned product from the side that holds the operation together when it breaks.",
+        "While still an L2 analyst I was already doing product work — prioritization, the area's business case, handoff with engineering, process design. The title change followed the work, not the other way round.",
         "In recent years I've specialized in <strong>operating model and data</strong> problems — cases where the company already has the system and already has the number, and still can't decide. Usually nothing is missing on the tooling side: what's missing is explainability, ownership, and criteria that survive a change of manager.",
         "I'm metrics-driven, use SQL so I don't depend on anyone for analysis, and have SaaS experience focused on PLG, Growth and Product Ops. I use AI heavily day to day — not as decoration, but to shorten discovery and writing cycles.",
         "My motto is <em>“Work Smart, Play Better”</em>."
@@ -72,29 +76,59 @@ window.CONTENT = {
     }
   },
 
+  markets: {
+    pt: {
+      title: "Mercados",
+      note: "Sete setores, cada um com uma lógica própria de risco, ciclo de decisão e definição do que é valor.",
+      items: [
+        { h: "Pagamentos e fintech", w: "BEES · AB InBev", d: "Regras de pagamento, gateways e entidades de pagamento em operação global." },
+        { h: "Bancário", w: "Santander", d: "Governança de custo, modelo de eficiência e mensuração de ganho em ambiente corporativo regulado." },
+        { h: "Crédito e cobrança", w: "Monest", d: "Recuperação de crédito com IA, do serviço ao produto SaaS." },
+        { h: "Bens de consumo", w: "Unilever · AB InBev", d: "Dado comercial de sell-out, planejamento e a cadeia que liga indústria a ponto de venda." },
+        { h: "SaaS B2B", w: "Leads2B", d: "Plataforma de vendas, packaging, pricing e transição para Product-Led Growth." },
+        { h: "Fitness e wellness", w: "Tecnofit", d: "Software de gestão para academias e estúdios, com integrações de mercado." },
+        { h: "Indústria e BPM", w: "Upflow · Brafer", d: "Automação de processo corporativo, service desk e infraestrutura em ambiente industrial." }
+      ]
+    },
+    en: {
+      title: "Industries",
+      note: "Seven sectors, each with its own logic of risk, decision cycle and definition of what counts as value.",
+      items: [
+        { h: "Payments and fintech", w: "BEES · AB InBev", d: "Payment rules, gateways and payment entities in a global operation." },
+        { h: "Banking", w: "Santander", d: "Cost governance, efficiency model and gain measurement in a regulated enterprise." },
+        { h: "Credit and collections", w: "Monest", d: "AI-driven credit recovery, from service to SaaS product." },
+        { h: "Consumer goods", w: "Unilever · AB InBev", d: "Commercial sell-out data, planning, and the chain linking manufacturer to point of sale." },
+        { h: "B2B SaaS", w: "Leads2B", d: "Sales platform, packaging, pricing and the transition to Product-Led Growth." },
+        { h: "Fitness and wellness", w: "Tecnofit", d: "Management software for gyms and studios, with market integrations." },
+        { h: "Industry and BPM", w: "Upflow · Brafer", d: "Corporate process automation, service desk and infrastructure in industrial settings." }
+      ]
+    }
+  },
+
   workTitle: {
-    pt: { title: "Trajetória", note: "Em ordem, do mais recente ao mais antigo." },
-    en: { title: "Career", note: "In order, most recent first." }
+    pt: {
+      title: "Trajetória",
+      groupProduct: "Como Product Manager",
+      groupProductNote: "Empresas em que respondi diretamente por produto.",
+      groupProjects: "Projetos e passagens curtas",
+      groupProjectsNote: "Consultoria e uma passagem breve, tratadas como projeto."
+    },
+    en: {
+      title: "Career",
+      groupProduct: "As a Product Manager",
+      groupProductNote: "Companies where I owned product directly.",
+      groupProjects: "Projects and short stints",
+      groupProjectsNote: "Consulting engagements and one brief stint, framed as projects."
+    }
   },
 
   work: [
     {
-      org: "NTT DATA Global",
-      logo: "NTT",
-      pt: {
-        role: "Data Product Manager · Analista de Negócio Sênior",
-        note: "Clientes: Unilever e Santander",
-        desc: "Lidero iniciativas de transformação de negócio combinando gestão de produto, análise de negócio e estratégia de dados em contextos corporativos de grande porte."
-      },
-      en: {
-        role: "Data Product Manager · Senior Business Analyst",
-        note: "Clients: Unilever and Santander",
-        desc: "I lead business transformation initiatives combining product management, business analysis and data strategy in large enterprise contexts."
-      }
-    },
-    {
+      group: "product",
       org: "BEES · AB InBev",
       logo: "BEES",
+      period: "ago 2024 – jun 2026",
+      periodEn: "Aug 2024 – Jun 2026",
       pt: {
         role: "Product Manager — Payments",
         note: "Reporte à liderança global (Nova York)",
@@ -107,8 +141,11 @@ window.CONTENT = {
       }
     },
     {
+      group: "product",
       org: "Monest",
       logo: "MNS",
+      period: "2023 – 2024",
+      periodEn: "2023 – 2024",
       pt: {
         role: "Product Manager — IA & PME",
         note: "Cobrança e recuperação de crédito",
@@ -121,8 +158,11 @@ window.CONTENT = {
       }
     },
     {
+      group: "product",
       org: "Leads2B",
       logo: "L2B",
+      period: "jun 2022 – 2023",
+      periodEn: "Jun 2022 – 2023",
       pt: {
         role: "Product Manager — PLG & Growth",
         note: "SaaS B2B de vendas",
@@ -135,44 +175,82 @@ window.CONTENT = {
       }
     },
     {
-      org: "Upflow.me",
-      logo: "UPF",
-      pt: {
-        role: "Product Owner — Totvs Fluig e Chatbot",
-        note: "",
-        desc: "Estruturei a área de produto do zero: automação de apontamento de horas e faturamento, dashboards de performance, jornada de onboarding de cliente e definição de ritos e KPIs."
-      },
-      en: {
-        role: "Product Owner — Totvs Fluig and Chatbot",
-        note: "",
-        desc: "Built the product area from scratch: automated time tracking and billing, performance dashboards, client onboarding journey, and defined rituals and KPIs."
-      }
-    },
-    {
+      group: "product",
       org: "Tecnofit",
       logo: "TCF",
+      period: "fev 2020 – nov 2021",
+      periodEn: "Feb 2020 – Nov 2021",
       pt: {
         role: "Product Owner · Analista de Suporte N2",
         note: "SaaS para academias e estúdios",
-        desc: "Do suporte ao produto. Reestruturei a operação, organizei o backlog legado e entreguei duas features core, integrações com Stone, nova ferramenta de NPS e a integração Gympass V2."
+        desc: "Do suporte ao produto — e já como N2 eu tocava priorização, business case da área e a passagem de bastão com desenvolvimento. Como PO, reestruturei a operação, organizei o backlog legado e entreguei duas features core, integrações com Stone, nova ferramenta de NPS e a integração Gympass V2."
       },
       en: {
         role: "Product Owner · L2 Support Analyst",
         note: "SaaS for gyms and studios",
-        desc: "From support to product. Restructured the operation, organized the legacy backlog and delivered two core features, Stone integrations, a new NPS tool and the Gympass V2 integration."
+        desc: "From support into product — already as an L2 I handled prioritization, the area's business case and the handoff with engineering. As a PO I restructured the operation, organized the legacy backlog and delivered two core features, Stone integrations, a new NPS tool and the Gympass V2 integration."
       }
     },
     {
+      group: "projects",
+      org: "NTT DATA Global",
+      logo: "NTT",
+      period: "abr 2025 – atual",
+      periodEn: "Apr 2025 – present",
+      pt: {
+        role: "Data Product Manager · Analista de Negócio Sênior",
+        note: "",
+        desc: "Lidero iniciativas de transformação de negócio combinando gestão de produto, análise de negócio e estratégia de dados em contextos corporativos de grande porte."
+      },
+      en: {
+        role: "Data Product Manager · Senior Business Analyst",
+        note: "",
+        desc: "I lead business transformation initiatives combining product management, business analysis and data strategy in large enterprise contexts."
+      },
+      projects: [
+        {
+          period: "2026",
+          pt: { name: "Santander", desc: "Discovery e desenho do Modelo de Gestão de Eficiência corporativo: modelo operacional, capacidades, governança e framework de mensuração de valor." },
+          en: { name: "Santander", desc: "Discovery and design of the corporate Efficiency Management Model: operating model, capabilities, governance and value measurement framework." }
+        },
+        {
+          period: "2026",
+          pt: { name: "Unilever · Phoenix", desc: "Assessment e redesenho do modelo operacional de Sell-Out, redefinindo como o dado comercial circula pela organização." },
+          en: { name: "Unilever · Phoenix", desc: "Assessment and redesign of the Sell-Out operating model, reshaping how commercial data flows across the organization." }
+        }
+      ]
+    },
+    {
+      group: "projects",
+      org: "Upflow.me",
+      logo: "UPF",
+      period: "fev – mai 2022",
+      periodEn: "Feb – May 2022",
+      pt: {
+        role: "Product Owner — Totvs Fluig e Chatbot",
+        note: "Passagem curta, de quatro meses",
+        desc: "Estruturei a área de produto do zero: automação de apontamento de horas e faturamento, dashboards de performance, jornada de onboarding de cliente e definição de ritos e KPIs."
+      },
+      en: {
+        role: "Product Owner — Totvs Fluig and Chatbot",
+        note: "A short four-month stint",
+        desc: "Built the product area from scratch: automated time tracking and billing, performance dashboards, client onboarding journey, and defined rituals and KPIs."
+      }
+    },
+    {
+      group: "projects",
       org: "Brafer",
       logo: "BRF",
+      period: "fev 2017 – jan 2020",
+      periodEn: "Feb 2017 – Jan 2020",
       pt: {
         role: "Auxiliar de T.I.",
-        note: "2017 – 2020 · onde tudo começou",
+        note: "Onde tudo começou",
         desc: "Suporte a quatro unidades industriais: inventário de máquinas, outsourcing de impressão, Active Directory, VPNs, cabeamento e implantação da ferramenta de service desk."
       },
       en: {
         role: "IT Assistant",
-        note: "2017 – 2020 · where it started",
+        note: "Where it started",
         desc: "Support across four industrial sites: hardware inventory, print outsourcing, Active Directory, VPNs, cabling and service desk tool rollout."
       }
     }
@@ -354,6 +432,45 @@ window.CONTENT = {
     }
   ],
 
+  productCases: {
+    pt: {
+      title: "Product Cases",
+      note: "Cases que preparei e apresentei em processo seletivo. São material autoral, sem confidencialidade — então aqui dá para mostrar o raciocínio inteiro, do diagnóstico à métrica, gravado.",
+      watch: "Assistir",
+      item: {
+        client: "XO Capital · case de processo seletivo",
+        title: "Três desafios sobre empresas do portfólio",
+        summary: "A XO Capital enviou três cenários sobre companhias do seu portfólio e perguntou como eu lidaria com cada um. Escolhi um recorte por cenário e apresentei diagnóstico, proposta e as métricas que acompanharia.",
+        sections: [
+          { h: "Desafio 1 · SheetsBest — melhorar", p: "Escolhi pelo maior potencial de melhoria acionável. Comecei usando a ferramenta como usuário e listei problemas de usabilidade e clareza — validação que só aparece depois do clique, CTA de upgrade sem hierarquia visual, tutoriais fora do produto, logo quebrada no blog. Em produto PLG, onde o produto precisa se vender sozinho, usabilidade é conversão." },
+          { h: "O núcleo: packaging", p: "O maior problema não era a interface: eram <strong>seis planos</strong>, sem billing anual, com o plano de entrada oferecendo essencialmente o mesmo que o gratuito e sem gatilho claro de expansão. Propus free forever + três faixas + pacotes de expansão, billing anual e trial de 7 dias deslocado para o upsell. A redistribuição de features seguiu o que os usuários valorizam — limite de requests e CRUD completo via API no topo; número de conexões entre planilhas e histórico da API no fim. Daí a virada: se o gatilho é request, limitar conexões trabalha contra o próprio modelo." },
+          { h: "Desafio 2 · SupportGuy — solução disruptiva", p: "Aqui a proposta pedia criatividade, não correção. Concentrei em quatro caminhos não excludentes, com destaque para <strong>omnichannel</strong> — integração com WhatsApp e Instagram pela API da Meta, que passou a dispensar broker — e <strong>API aberta com webhook</strong>, além de integração nativa com Zendesk e Freshdesk. A tese: o maior potencial não está em quem não tem time de suporte, e sim em quem já tem time e ferramenta e quer escalar." },
+          { h: "Método e métricas", p: "Van Westendorp e MaxDiff para packaging e pricing, RICE para priorização, e pesquisa com profissionais de Ops de uma comunidade para testar as hipóteses de valor. Do lado da medição: métricas pirata com atenção especial a Activation e Revenue, mais CAC, LTV, NMRR e churn. Deixei explícito na apresentação que parte das propostas são hipóteses — a construção precisa ser pequena e rápida justamente para errar cedo e corrigir a rota." }
+        ]
+      }
+    },
+    en: {
+      title: "Product Cases",
+      note: "Cases I prepared and presented in a hiring process. This is my own material, under no confidentiality — so here the full reasoning is on show, from diagnosis to metrics, on video.",
+      watch: "Watch",
+      item: {
+        client: "XO Capital · interview case",
+        title: "Three challenges across portfolio companies",
+        summary: "XO Capital sent three scenarios about companies in their portfolio and asked how I would handle each. I picked an angle per scenario and presented the diagnosis, the proposal and the metrics I would track.",
+        sections: [
+          { h: "Challenge 1 · SheetsBest — improve", p: "I picked it for the largest actionable upside. I started by using the tool as a user and listed usability and clarity problems — validation that only appears after the click, an upgrade CTA with no visual hierarchy, tutorials living outside the product, a broken logo on the blog. In a PLG product, where the product has to sell itself, usability is conversion." },
+          { h: "The core: packaging", p: "The bigger problem wasn't the interface: it was <strong>six plans</strong>, no annual billing, an entry tier offering essentially what the free tier already did, and no clear expansion trigger. I proposed free forever + three tiers + expansion packs, annual billing, and moving the 7-day trial to the upsell. Feature redistribution followed what users actually value — request limits and full CRUD via API at the top; number of connected sheets and API history at the bottom. Hence the turn: if the trigger is requests, capping connections works against your own model." },
+          { h: "Challenge 2 · SupportGuy — a disruptive solution", p: "This one asked for creativity, not correction. I focused on four non-exclusive paths, leading with <strong>omnichannel</strong> — WhatsApp and Instagram via Meta's API, which no longer requires a broker — and an <strong>open API with webhooks</strong>, plus native Zendesk and Freshdesk integration. The thesis: the biggest upside isn't with companies that lack a support team, it's with those that already have a team and a tool and want to scale it." },
+          { h: "Method and metrics", p: "Van Westendorp and MaxDiff for packaging and pricing, RICE for prioritization, and research with Ops professionals from a community to test the value hypotheses. On measurement: pirate metrics with special attention to Activation and Revenue, plus CAC, LTV, NMRR and churn. I stated explicitly in the presentation that some proposals are hypotheses — the build has to stay small and fast precisely so you can be wrong early and correct course." }
+        ]
+      }
+    },
+    videos: [
+      { id: "SDnKKKbCFGA", pt: "Parte 1", en: "Part 1" },
+      { id: "0V6YxUKehig", pt: "Parte 2", en: "Part 2" }
+    ]
+  },
+
   toolkit: {
     pt: {
       title: "Como trabalho",
@@ -406,12 +523,14 @@ window.CONTENT = {
     pt: {
       title: "Contato",
       lead: "Aberto a conversas sobre produto, modelo operacional e problemas de dado que ninguém consegue explicar.",
-      location: "Curitiba, Brasil · disponível para remoto"
+      location: "Curitiba, Brasil · disponível para remoto",
+      whatsapp: "WhatsApp"
     },
     en: {
       title: "Contact",
       lead: "Open to conversations about product, operating models and data problems nobody can explain.",
-      location: "Curitiba, Brazil · available for remote"
+      location: "Curitiba, Brazil · available for remote",
+      whatsapp: "WhatsApp"
     }
   },
 

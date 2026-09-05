@@ -278,6 +278,7 @@
     var nav = L(C.nav);
     document.getElementById("nav").innerHTML =
       '<a href="#about">' + esc(nav.about) + "</a>" +
+      '<a href="#markets">' + esc(nav.markets) + "</a>" +
       '<a href="#work">' + esc(nav.work) + "</a>" +
       '<a href="#cases">' + esc(nav.cases) + "</a>" +
       '<a href="#toolkit">' + esc(nav.toolkit) + "</a>" +
@@ -291,17 +292,38 @@
     /* hero */
     var h = L(C.hero);
     document.getElementById("hero").innerHTML =
-      '<div class="wrap">' +
-        '<p class="hero__kicker">' + esc(h.kicker) + "</p>" +
-        "<h1>" + esc(h.name) + "</h1>" +
-        '<p class="hero__lead">' + h.lead + "</p>" +
-        '<p class="hero__body">' + esc(h.body) + "</p>" +
-        '<div class="hero__cta">' +
-          '<a class="btn btn--primary" href="#cases">' + esc(h.ctaCases) +
-            ' <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>' +
-          '<a class="btn btn--ghost" href="#contact">' + esc(h.ctaContact) + "</a>" +
+      '<div class="wrap hero__in">' +
+        '<div class="hero__text">' +
+          '<p class="hero__kicker">' + esc(h.kicker) + "</p>" +
+          "<h1>" + esc(h.name) + "</h1>" +
+          '<p class="hero__lead">' + h.lead + "</p>" +
+          '<p class="hero__body">' + esc(h.body) + "</p>" +
+          '<div class="hero__cta">' +
+            '<a class="btn btn--primary" href="#cases">' + esc(h.ctaCases) +
+              ' <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>' +
+            '<a class="btn btn--ghost" href="#contact">' + esc(h.ctaContact) + "</a>" +
+          "</div>" +
         "</div>" +
+        '<figure class="hero__photo">' +
+          '<img src="assets/img/kevin.jpg" alt="' + esc(h.photoAlt) + '" width="1183" height="857" fetchpriority="high" decoding="async">' +
+        "</figure>" +
       "</div>";
+
+    /* mercados */
+    var mk = L(C.markets);
+    document.getElementById("markets").innerHTML =
+      '<div class="wrap">' +
+        '<div class="sec__head"><p class="sec__eyebrow">' + esc(mk.title) + "</p>" +
+        "<h2>" + esc(mk.title) + '</h2><p class="sec__note">' + esc(mk.note) + "</p></div>" +
+        '<div class="mkt">' +
+        mk.items.map(function (m) {
+          return '<div class="mkt__i">' +
+            '<h3>' + esc(m.h) + "</h3>" +
+            '<p class="mkt__w">' + esc(m.w) + "</p>" +
+            '<p class="mkt__d">' + esc(m.d) + "</p>" +
+          "</div>";
+        }).join("") +
+      "</div></div>";
 
     /* stats */
     document.getElementById("stats").innerHTML =
@@ -325,23 +347,42 @@
 
     /* work */
     var wt = L(C.workTitle);
+    function tlItem(w) {
+      var x = w[lang];
+      var per = lang === "pt" ? w.period : w.periodEn;
+      var subs = "";
+      if (w.projects && w.projects.length) {
+        subs = '<ul class="tl__subs">' + w.projects.map(function (pj) {
+          var px = pj[lang];
+          return "<li><span class=\"tl__sub-per\">" + esc(pj.period) + "</span>" +
+                 '<span class="tl__sub-name">' + esc(px.name) + "</span>" +
+                 '<span class="tl__sub-desc">' + esc(px.desc) + "</span></li>";
+        }).join("") + "</ul>";
+      }
+      return '<div class="tl__item">' +
+        '<div class="tl__badge">' + esc(w.logo) + "</div>" +
+        "<div>" +
+          '<div class="tl__top"><span class="tl__org">' + esc(w.org) + "</span>" +
+            '<span class="tl__per">' + esc(per) + "</span></div>" +
+          '<div class="tl__role">' + esc(x.role) + "</div>" +
+          (x.note ? '<div class="tl__note">' + esc(x.note) + "</div>" : "") +
+          '<p class="tl__desc">' + esc(x.desc) + "</p>" + subs +
+        "</div></div>";
+    }
+    function tlGroup(key, heading, note) {
+      var items = C.work.filter(function (w) { return w.group === key; });
+      return '<div class="tl__group">' +
+        '<h3 class="tl__gh">' + esc(heading) + "</h3>" +
+        '<p class="tl__gn">' + esc(note) + "</p>" +
+        '<div class="tl">' + items.map(tlItem).join("") + "</div></div>";
+    }
     document.getElementById("work").innerHTML =
       '<div class="wrap">' +
         '<div class="sec__head"><p class="sec__eyebrow">' + esc(wt.title) + "</p>" +
-        "<h2>" + esc(wt.title) + '</h2><p class="sec__note">' + esc(wt.note) + "</p></div>" +
-        '<div class="tl">' +
-        C.work.map(function (w) {
-          var x = w[lang];
-          return '<div class="tl__item">' +
-            '<div class="tl__badge">' + esc(w.logo) + "</div>" +
-            "<div>" +
-              '<div class="tl__org">' + esc(w.org) + "</div>" +
-              '<div class="tl__role">' + esc(x.role) + "</div>" +
-              (x.note ? '<div class="tl__note">' + esc(x.note) + "</div>" : "") +
-              '<p class="tl__desc">' + esc(x.desc) + "</p>" +
-            "</div></div>";
-        }).join("") +
-        "</div></div>";
+        "<h2>" + esc(wt.title) + "</h2></div>" +
+        tlGroup("product", wt.groupProduct, wt.groupProductNote) +
+        tlGroup("projects", wt.groupProjects, wt.groupProjectsNote) +
+      "</div>";
 
     /* cases */
     var ct = L(C.casesTitle);
@@ -378,6 +419,33 @@
         }).join("") +
         "</div></div>";
 
+    /* product cases */
+    var pc = L(C.productCases), pi = pc.item;
+    document.getElementById("pcases").innerHTML =
+      '<div class="wrap">' +
+        '<div class="sec__head"><p class="sec__eyebrow">' + esc(pc.title) + "</p>" +
+        "<h2>" + esc(pc.title) + '</h2><p class="sec__note">' + esc(pc.note) + "</p></div>" +
+        '<article class="pcase">' +
+          '<div class="pcase__body">' +
+            '<p class="case__client">' + esc(pi.client) + "</p>" +
+            '<h3 class="case__title">' + esc(pi.title) + "</h3>" +
+            '<p class="case__summary">' + esc(pi.summary) + "</p>" +
+            pi.sections.map(function (s) {
+              return '<div class="case__sec"><h4>' + esc(s.h) + "</h4><p>" + s.p + "</p></div>";
+            }).join("") +
+          "</div>" +
+          '<aside class="pcase__vids">' +
+          C.productCases.videos.map(function (v) {
+            return '<a class="vid" href="https://youtu.be/' + esc(v.id) + '" target="_blank" rel="noopener noreferrer">' +
+              '<span class="vid__thumb"><img src="https://i.ytimg.com/vi/' + esc(v.id) + '/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">' +
+                '<span class="vid__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>' +
+              '<span class="vid__meta"><span class="vid__label">' + esc(v[lang]) + "</span>" +
+              '<span class="vid__cta">' + esc(pc.watch) + " ↗</span></span></a>";
+          }).join("") +
+          "</aside>" +
+        "</article>" +
+      "</div>";
+
     /* toolkit + education */
     var k = L(C.toolkit), ed = L(C.education);
     document.getElementById("toolkit").innerHTML =
@@ -402,6 +470,9 @@
         '<p class="contact__lead">' + esc(co.lead) + "</p>" +
         '<div class="contact__links">' +
           '<a class="btn btn--primary" href="mailto:kevin-camargo@hotmail.com">kevin-camargo@hotmail.com</a>' +
+          '<a class="btn btn--ghost" href="https://wa.me/5541996662493" target="_blank" rel="noopener noreferrer">' +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .9.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>' +
+            esc(co.whatsapp) + "</a>" +
           '<a class="btn btn--ghost" href="https://www.linkedin.com/in/kevin-lucas-camargo-b59882162/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
           '<a class="btn btn--ghost" href="https://github.com/kevinlucascamargo" target="_blank" rel="noopener noreferrer">GitHub</a>' +
         "</div>" +
