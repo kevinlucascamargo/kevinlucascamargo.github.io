@@ -17,6 +17,18 @@
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
+  /* ---------- icones (stroke, herdam currentColor) ---------- */
+  var ICONS = {
+    tech:    '<path d="M4 17l6-6-6-6"/><path d="M12.5 19h8"/>',
+    product: '<path d="M12 2.5 2.5 7.5 12 12.5l9.5-5z"/><path d="M2.5 16.5 12 21.5l9.5-5"/><path d="M2.5 12 12 17l9.5-5"/>',
+    company: '<path d="M2.5 21h19"/><path d="M4.5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M14.5 21V10h3a2 2 0 0 1 2 2v9"/><path d="M8 7.5h2.5M8 11.5h2.5M8 15.5h2.5"/>',
+    market:  '<circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4"/><path d="M12 2.8a14 14 0 0 1 0 18.4a14 14 0 0 1 0-18.4"/>'
+  };
+  function icon(name) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || "") + "</svg>";
+  }
+
   /* ============================================================
      DIAGRAMAS — reconstrucoes genericas, sem dado de cliente
      ============================================================ */
@@ -328,14 +340,17 @@
     /* stats */
     document.getElementById("stats").innerHTML =
       '<div class="wrap"><div class="stats">' +
-      L(C.stats).map(function (s) {
-        return '<div class="stat"><div class="stat__n">' + esc(s.n) + '</div><div class="stat__l">' + esc(s.l) + "</div></div>";
+      L(C.stats).map(function (s, i) {
+        return '<div class="stat">' +
+          '<span class="stat__ico">' + icon(C.stats.icons[i]) + "</span>" +
+          '<span class="stat__body"><span class="stat__n">' + esc(s.n) + "</span>" +
+          '<span class="stat__l">' + esc(s.l) + "</span></span></div>";
       }).join("") +
       "</div></div>";
 
     /* about */
     var a = L(C.about);
-    var half = Math.ceil(a.p.length / 2);
+    var half = Math.floor(a.p.length / 2);
     document.getElementById("about").innerHTML =
       '<div class="wrap">' +
         '<div class="sec__head"><p class="sec__eyebrow">' + esc(a.title) + "</p></div>" +
@@ -369,19 +384,11 @@
           '<p class="tl__desc">' + esc(x.desc) + "</p>" + subs +
         "</div></div>";
     }
-    function tlGroup(key, heading, note) {
-      var items = C.work.filter(function (w) { return w.group === key; });
-      return '<div class="tl__group">' +
-        '<h3 class="tl__gh">' + esc(heading) + "</h3>" +
-        '<p class="tl__gn">' + esc(note) + "</p>" +
-        '<div class="tl">' + items.map(tlItem).join("") + "</div></div>";
-    }
     document.getElementById("work").innerHTML =
       '<div class="wrap">' +
         '<div class="sec__head"><p class="sec__eyebrow">' + esc(wt.title) + "</p>" +
-        "<h2>" + esc(wt.title) + "</h2></div>" +
-        tlGroup("product", wt.groupProduct, wt.groupProductNote) +
-        tlGroup("projects", wt.groupProjects, wt.groupProjectsNote) +
+        "<h2>" + esc(wt.title) + '</h2><p class="sec__note">' + esc(wt.note) + "</p></div>" +
+        '<div class="tl">' + C.work.map(tlItem).join("") + "</div>" +
       "</div>";
 
     /* cases */

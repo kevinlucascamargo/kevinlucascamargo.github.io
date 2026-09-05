@@ -39,6 +39,7 @@ window.CONTENT = {
   },
 
   stats: {
+    icons: ["tech", "product", "company", "market"],
     pt: [
       { n: "9", l: "anos em tecnologia" },
       { n: "6", l: "anos em produto" },
@@ -106,25 +107,40 @@ window.CONTENT = {
   },
 
   workTitle: {
-    pt: {
-      title: "Trajetória",
-      groupProduct: "Como Product Manager",
-      groupProductNote: "Empresas em que respondi diretamente por produto.",
-      groupProjects: "Projetos e passagens curtas",
-      groupProjectsNote: "Consultoria e uma passagem breve, tratadas como projeto."
-    },
-    en: {
-      title: "Career",
-      groupProduct: "As a Product Manager",
-      groupProductNote: "Companies where I owned product directly.",
-      groupProjects: "Projects and short stints",
-      groupProjectsNote: "Consulting engagements and one brief stint, framed as projects."
-    }
+    pt: { title: "Trajetória", note: "Do mais recente ao mais antigo." },
+    en: { title: "Career", note: "Most recent first." }
   },
 
   work: [
     {
-      group: "product",
+      org: "NTT DATA Global",
+      logo: "NTT",
+      period: "abr 2025 – atual",
+      periodEn: "Apr 2025 – present",
+      pt: {
+        role: "Data Product Manager · Analista de Negócio Sênior",
+        note: "Transformação de negócio em contexto corporativo",
+        desc: "Lidero iniciativas de transformação combinando gestão de produto, análise de negócio e estratégia de dados. Respondo pelo desenho de modelo operacional, pela estrutura de governança e pelo framework de mensuração que sustenta a decisão de investimento."
+      },
+      en: {
+        role: "Data Product Manager · Senior Business Analyst",
+        note: "Business transformation in enterprise contexts",
+        desc: "I lead transformation initiatives combining product management, business analysis and data strategy. I own the operating model design, the governance structure and the measurement framework that underpins investment decisions."
+      },
+      projects: [
+        {
+          period: "2026",
+          pt: { name: "Santander", desc: "Discovery e desenho do Modelo de Gestão de Eficiência corporativo: modelo operacional, capacidades, governança e framework de mensuração de valor." },
+          en: { name: "Santander", desc: "Discovery and design of the corporate Efficiency Management Model: operating model, capabilities, governance and value measurement framework." }
+        },
+        {
+          period: "2026",
+          pt: { name: "Unilever · Phoenix", desc: "Assessment e redesenho do modelo operacional de Sell-Out, redefinindo como o dado comercial circula pela organização." },
+          en: { name: "Unilever · Phoenix", desc: "Assessment and redesign of the Sell-Out operating model, reshaping how commercial data flows across the organization." }
+        }
+      ]
+    },
+    {
       org: "BEES · AB InBev",
       logo: "BEES",
       period: "ago 2024 – jun 2026",
@@ -141,7 +157,6 @@ window.CONTENT = {
       }
     },
     {
-      group: "product",
       org: "Monest",
       logo: "MNS",
       period: "2023 – 2024",
@@ -158,7 +173,6 @@ window.CONTENT = {
       }
     },
     {
-      group: "product",
       org: "Leads2B",
       logo: "L2B",
       period: "jun 2022 – 2023",
@@ -175,7 +189,22 @@ window.CONTENT = {
       }
     },
     {
-      group: "product",
+      org: "Upflow.me",
+      logo: "UPF",
+      period: "fev – mai 2022",
+      periodEn: "Feb – May 2022",
+      pt: {
+        role: "Product Owner — Totvs Fluig e Chatbot",
+        note: "Automação de processo corporativo",
+        desc: "Estruturei a área de produto do zero: automação de apontamento de horas e faturamento, dashboards de performance para gestão e visibilidade do cliente, jornada de onboarding e definição de ritos e KPIs."
+      },
+      en: {
+        role: "Product Owner — Totvs Fluig and Chatbot",
+        note: "Corporate process automation",
+        desc: "Built the product area from scratch: automated time tracking and billing, performance dashboards for management and client visibility, the onboarding journey, and defined rituals and KPIs."
+      }
+    },
+    {
       org: "Tecnofit",
       logo: "TCF",
       period: "fev 2020 – nov 2021",
@@ -192,53 +221,6 @@ window.CONTENT = {
       }
     },
     {
-      group: "projects",
-      org: "NTT DATA Global",
-      logo: "NTT",
-      period: "abr 2025 – atual",
-      periodEn: "Apr 2025 – present",
-      pt: {
-        role: "Data Product Manager · Analista de Negócio Sênior",
-        note: "",
-        desc: "Lidero iniciativas de transformação de negócio combinando gestão de produto, análise de negócio e estratégia de dados em contextos corporativos de grande porte."
-      },
-      en: {
-        role: "Data Product Manager · Senior Business Analyst",
-        note: "",
-        desc: "I lead business transformation initiatives combining product management, business analysis and data strategy in large enterprise contexts."
-      },
-      projects: [
-        {
-          period: "2026",
-          pt: { name: "Santander", desc: "Discovery e desenho do Modelo de Gestão de Eficiência corporativo: modelo operacional, capacidades, governança e framework de mensuração de valor." },
-          en: { name: "Santander", desc: "Discovery and design of the corporate Efficiency Management Model: operating model, capabilities, governance and value measurement framework." }
-        },
-        {
-          period: "2026",
-          pt: { name: "Unilever · Phoenix", desc: "Assessment e redesenho do modelo operacional de Sell-Out, redefinindo como o dado comercial circula pela organização." },
-          en: { name: "Unilever · Phoenix", desc: "Assessment and redesign of the Sell-Out operating model, reshaping how commercial data flows across the organization." }
-        }
-      ]
-    },
-    {
-      group: "projects",
-      org: "Upflow.me",
-      logo: "UPF",
-      period: "fev – mai 2022",
-      periodEn: "Feb – May 2022",
-      pt: {
-        role: "Product Owner — Totvs Fluig e Chatbot",
-        note: "Passagem curta, de quatro meses",
-        desc: "Estruturei a área de produto do zero: automação de apontamento de horas e faturamento, dashboards de performance, jornada de onboarding de cliente e definição de ritos e KPIs."
-      },
-      en: {
-        role: "Product Owner — Totvs Fluig and Chatbot",
-        note: "A short four-month stint",
-        desc: "Built the product area from scratch: automated time tracking and billing, performance dashboards, client onboarding journey, and defined rituals and KPIs."
-      }
-    },
-    {
-      group: "projects",
       org: "Brafer",
       logo: "BRF",
       period: "fev 2017 – jan 2020",

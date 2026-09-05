@@ -195,16 +195,29 @@ strong { font-weight: 620; }
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
   background: var(--line); border-block: 1px solid var(--line);
 }
-.stat { background: var(--bg); padding: 22px 4px 22px 0; }
-.stat__n {
-  font-family: var(--font-serif); font-size: clamp(30px, 4vw, 42px);
-  font-weight: 600; line-height: 1; letter-spacing: -.02em; color: var(--accent);
+.stat {
+  background: var(--bg); padding: 24px 24px 24px 22px;
+  display: flex; align-items: center; gap: 15px;
 }
-.stat__l { font-size: 13.5px; color: var(--muted); margin-top: 7px; max-width: 16ch; }
-@media (max-width: 620px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stat { padding-left: 0; }
-  .stat:nth-child(odd) { padding-left: 0; }
+.stat__ico {
+  flex: none; width: 40px; height: 40px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-bg); color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.stat__ico svg { width: 20px; height: 20px; }
+.stat__body { display: flex; flex-direction: column; min-width: 0; }
+.stat__n {
+  font-family: var(--font-serif); font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 600; line-height: 1.05; letter-spacing: -.02em; color: var(--ink);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.stat__l { font-size: 13.5px; line-height: 1.35; color: var(--muted); margin-top: 3px; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) {
+  .stat { padding: 18px 16px; gap: 12px; }
+  .stat__ico { width: 34px; height: 34px; border-radius: 9px; }
+  .stat__ico svg { width: 17px; height: 17px; }
 }
 
 /* ---------- sections ---------- */
@@ -238,9 +251,6 @@ strong { font-weight: 620; }
   background: var(--surface); border: 1px solid var(--line);
   font-size: 12.5px; font-weight: 680; letter-spacing: .04em; color: var(--accent);
 }
-.tl__group + .tl__group { margin-top: 56px; }
-.tl__gh { font-size: 12px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
-.tl__gn { margin: 8px 0 18px; font-size: 14.5px; color: var(--muted); }
 .tl__top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
 .tl__per {
   font-size: 12.5px; font-weight: 560; color: var(--muted); white-space: nowrap;
