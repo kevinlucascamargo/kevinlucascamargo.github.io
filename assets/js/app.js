@@ -54,15 +54,16 @@
         side2: "Timing do dado fora do\nciclo de decisão",
         cap: "Quatro dos seis problemas estruturais formam um ciclo fechado. Atacar um item isolado não move o conjunto — por isso o roadmap foi sequenciado, e não priorizado item a item."
       },
-      pqa: {
-        inTitle: "Artefato no board", inSub: "iniciativa · épico · task\nbug · spike",
-        c1: "Validação de campos\nem tempo real",
-        c2: "Biblioteca de prompts\nversionada",
-        c2sub: "templates por tipo · frameworks\nde índice · sumarização",
-        ai: "Scoring de\nqualidade por IA",
-        outTitle: "Painel de\nresultado", outSub: "nota, lacunas\ne sugestões",
-        loop: "o autor corrige antes de a engenharia pegar",
-        cap: "A extensão roda sobre a ferramenta de gestão e devolve o resultado no mesmo lugar onde o artefato é escrito. O ganho não é o checklist — é o momento em que ele aparece."
+      pay: {
+        title: "O caminho que não fechava",
+        a: "Pedido criado", aSub: "PIX · cartão online",
+        b: "Intenção de\npagamento", bSub: "a tentativa chega a existir?",
+        ok: "Tentativa registrada", okSub: "falha tem retry",
+        no: "Nenhuma tentativa", noSub: "webview fechada ·\nQR não renderizado",
+        limbo: "Pendente\nindefinidamente",
+        fix: "TTL → cancelamento automático",
+        fixSub: "com telemetria que separa abandono natural de falha de experiência",
+        cap: "O pedido não falhava: ele nunca entrava no fluxo que sabe lidar com falha. Por isso a correção não é retry, é fechar o caso por tempo — e instrumentar, para o cancelamento não virar um jeito de esconder o problema."
       },
       plg: {
         r1: "Van Westendorp", r1s: "faixa de sensibilidade a preço",
@@ -94,15 +95,16 @@
         side2: "Data timing out of sync\nwith decision cycles",
         cap: "Four of the six structural problems form a closed loop. Attacking any single item doesn't move the whole — which is why the roadmap was sequenced rather than prioritized item by item."
       },
-      pqa: {
-        inTitle: "Artifact on the board", inSub: "initiative · epic · task\nbug · spike",
-        c1: "Real-time\nfield validation",
-        c2: "Versioned\nprompt library",
-        c2sub: "templates per type · index\nframeworks · summarization",
-        ai: "AI quality\nscoring",
-        outTitle: "Result\npanel", outSub: "score, gaps\nand fixes",
-        loop: "the author fixes it before engineering picks it up",
-        cap: "The extension runs on top of the tracking tool and returns the result in the same place the artifact is written. The gain isn't the checklist — it's the moment it shows up."
+      pay: {
+        title: "The path that never closed",
+        a: "Order created", aSub: "PIX · online card",
+        b: "Payment\nintent", bSub: "does an attempt ever exist?",
+        ok: "Attempt recorded", okSub: "failure has retry",
+        no: "No attempt at all", noSub: "webview closed ·\nQR never rendered",
+        limbo: "Pending\nindefinitely",
+        fix: "TTL → automatic cancellation",
+        fixSub: "with telemetry separating natural abandonment from experience failure",
+        cap: "The order didn't fail: it never entered the flow that knows how to handle failure. So the fix isn't a retry, it's closing the case on time — and instrumenting it, so cancellation doesn't become a way to hide the problem."
       },
       plg: {
         r1: "Van Westendorp", r1s: "price sensitivity range",
@@ -197,43 +199,50 @@
       '</svg>';
     },
 
-    pqa: function (d) {
-      var t = d.pqa;
+    paymentlimbo: function (d) {
+      var t = d.pay;
       return '' +
-      '<svg viewBox="0 0 760 300" role="img" aria-label="' + esc(t.cap) + '">' +
+      '<svg viewBox="0 0 760 344" role="img" aria-label="' + esc(t.cap) + '">' +
         '<defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">' +
           '<path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker>' +
         '<marker id="ah3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">' +
-          '<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>' +
+          '<path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker>' +
+        '<marker id="ah3w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">' +
+          '<path d="M0,0 L10,5 L0,10 z" fill="var(--warm)"/></marker></defs>' +
 
-        '<rect class="d-box" x="10" y="94" width="188" height="84" rx="10"/>' +
-        '<text class="d-t-md d-ink" x="28" y="124">' + esc(t.inTitle) + '</text>' +
-        '<text class="d-t-sm d-muted" x="28" y="144">' + lines(t.inSub, 28, 0, "", 14) + '</text>' +
+        '<text class="d-t-lg d-ink" x="8" y="20">' + esc(t.title) + '</text>' +
 
-        '<path class="d-line" d="M204,136 L232,136" marker-end="url(#ah3)"/>' +
+        '<rect class="d-box" x="8" y="112" width="156" height="70" rx="10"/>' +
+        '<text class="d-t-md d-ink" x="26" y="142">' + esc(t.a) + '</text>' +
+        '<text class="d-t-sm d-muted" x="26" y="162">' + esc(t.aSub) + '</text>' +
 
-        '<rect class="d-box-acc" x="238" y="50" width="196" height="64" rx="10"/>' +
-        '<text class="d-t-md d-acc" x="258" y="79">' + lines(t.c1, 258, 0, "", 16) + '</text>' +
+        '<path class="d-line" d="M170,147 L196,147" marker-end="url(#ah3)"/>' +
 
-        '<rect class="d-box-acc" x="238" y="152" width="196" height="92" rx="10"/>' +
-        '<text class="d-t-md d-acc" x="258" y="180">' + lines(t.c2, 258, 0, "", 16) + '</text>' +
-        '<text class="d-t-sm d-muted" x="258" y="218">' + lines(t.c2sub, 258, 0, "", 14) + '</text>' +
+        '<rect class="d-box" x="202" y="102" width="170" height="90" rx="10"/>' +
+        '<text class="d-t-md d-ink" x="220" y="132">' + lines(t.b, 220, 0, "", 16) + '</text>' +
+        '<text class="d-t-sm d-muted" x="220" y="176">' + esc(t.bSub) + '</text>' +
 
-        '<path class="d-line-acc" d="M440,82 C466,90 474,108 478,126" marker-end="url(#ah3a)"/>' +
-        '<path class="d-line-acc" d="M440,198 C466,190 474,168 478,150" marker-end="url(#ah3a)"/>' +
+        '<path class="d-line-acc" d="M378,132 C400,124 404,108 406,92" marker-end="url(#ah3a)"/>' +
+        '<path class="d-line" style="stroke:var(--warm)" d="M378,162 C400,172 404,192 406,210" marker-end="url(#ah3w)"/>' +
 
-        '<rect class="d-box-warm" x="484" y="104" width="126" height="66" rx="10"/>' +
-        '<text class="d-t-md d-warm" x="500" y="132">' + lines(t.ai, 500, 0, "", 16) + '</text>' +
+        '<rect class="d-box-acc" x="412" y="36" width="196" height="62" rx="10"/>' +
+        '<text class="d-t-md d-acc" x="430" y="64">' + esc(t.ok) + '</text>' +
+        '<text class="d-t-sm d-muted" x="430" y="84">' + esc(t.okSub) + '</text>' +
 
-        '<path class="d-line" d="M616,136 L634,136" marker-end="url(#ah3)"/>' +
+        '<rect class="d-box-warm" x="412" y="200" width="196" height="82" rx="10"/>' +
+        '<text class="d-t-md d-warm" x="430" y="228">' + esc(t.no) + '</text>' +
+        '<text class="d-t-sm d-muted" x="430" y="248">' + lines(t.noSub, 430, 0, "", 14) + '</text>' +
 
-        '<rect class="d-box" x="640" y="94" width="114" height="84" rx="10"/>' +
-        '<text class="d-t-md d-ink" x="654" y="122">' + lines(t.outTitle, 654, 0, "", 15) + '</text>' +
-        '<text class="d-t-sm d-muted" x="654" y="156">' + lines(t.outSub, 654, 0, "", 13) + '</text>' +
+        '<path class="d-line" style="stroke:var(--warm)" d="M614,241 L640,241" marker-end="url(#ah3w)"/>' +
 
-        '<path class="d-dash" d="M697,188 C697,262 100,262 100,186" marker-end="url(#ah3)"/>' +
-        '<rect x="272" y="248" width="254" height="24" rx="12" fill="var(--bg)"/>' +
-        '<text class="d-t-sm d-muted" x="399" y="264" text-anchor="middle">' + esc(t.loop) + '</text>' +
+        '<rect x="646" y="200" width="106" height="82" rx="10" fill="var(--warm-bg)" stroke="var(--warm)" stroke-width="1.6"/>' +
+        '<text class="d-t-md d-warm" x="662" y="232">' + lines(t.limbo, 662, 0, "", 16) + '</text>' +
+
+        '<path class="d-dash" style="stroke:var(--accent)" d="M699,288 C699,318 210,320 130,302" marker-end="url(#ah3a)"/>' +
+
+        '<rect class="d-box-acc" x="8" y="278" width="404" height="58" rx="10"/>' +
+        '<text class="d-t-md d-acc" x="26" y="303">' + esc(t.fix) + '</text>' +
+        '<text class="d-t-sm d-muted" x="26" y="323">' + esc(t.fixSub) + '</text>' +
       '</svg>';
     },
 
@@ -404,7 +413,7 @@
           var isOpen = !!openCases[c.id];
           var dgm = "";
           if (c.diagram && DIAGRAMS[c.diagram]) {
-            var capKey = { explainability: "exp", sellout: "sell", pqa: "pqa", plg: "plg" }[c.diagram];
+            var capKey = { explainability: "exp", sellout: "sell", paymentlimbo: "pay", plg: "plg" }[c.diagram];
             dgm = '<div class="dgm">' + DIAGRAMS[c.diagram](d) +
                   '<p class="dgm__cap">' + esc(d[capKey].cap) + "</p></div>";
           }

@@ -306,28 +306,34 @@ window.CONTENT = {
     },
     {
       id: "bees",
-      diagram: "pqa",
-      tags: ["Payments", "AI Product", "Browser Extension", "Enablement"],
+      diagram: "paymentlimbo",
+      tags: ["Payments", "Discovery", "Shaping", "AI Enablement"],
       pt: {
         client: "BEES · AB InBev",
-        title: "Payment Rules e IA aplicada à qualidade do backlog",
-        summary: "Duas frentes: o motor de regras de pagamento de uma fintech global, e uma extensão de navegador que avalia a qualidade dos artefatos de produto com IA.",
+        title: "Payment Rules e o discovery do auto-cancelamento",
+        summary: "Pedidos que ficavam presos para sempre em “pagamento pendente” — não porque o pagamento falhou, mas porque ele nunca chegou a ser tentado.",
         sections: [
-          { h: "Payments", p: "Atuei na divisão de Payments, respondendo por Payment Rules — inicialização de pagamento, integração de gateway, gestão de entidades de pagamento e flexibilização do fluxo. Reporte direto à liderança global em Nova York, com foco em reduzir fricção no processo de pagamento e aumentar eficiência operacional." },
-          { h: "O problema de escala", p: "Num programa com muitos times, a qualidade dos artefatos de produto — iniciativa, épico, task, bug, spike — determina o quanto a engenharia consegue executar sem retrabalho. Revisar isso manualmente não escala, e um checklist estático não captura o que faz um requisito ser bom." },
-          { h: "O que construí", p: "Uma extensão de navegador que roda sobre a ferramenta de gestão e faz validação em tempo real dos campos de cada tipo de artefato, com <strong>scoring de qualidade por IA</strong> e um painel lateral com o resultado detalhado. Por trás dela, uma biblioteca de prompts versionados: templates por tipo de artefato, assistentes de sumarização e de release notes, e frameworks de cálculo de índice para iniciativas e épicos." },
-          { h: "Adoção", p: "Liderei a AI PMs Guild, iniciativa dedicada a alavancar IA dentro da área de produto — criação de prompts, treinamento de modelo e facilitação de workshops. A extensão foi a peça concreta que transformou a discussão sobre IA em ferramenta de uso diário." }
+          { h: "A frente", p: "Atuei na divisão de Payments respondendo por Payment Rules — inicialização de pagamento, integração de gateway, gestão de entidades de pagamento e flexibilização do fluxo. Reporte direto à liderança global em Nova York. No dia a dia, priorização do delivery e articulação entre os times envolvidos em cada entrega." },
+          { h: "O problema", p: "Pedidos pagos por PIX ou cartão online podiam permanecer indefinidamente em pagamento pendente quando <strong>nenhuma tentativa de pagamento chegava a existir</strong> — o QR não renderizava, a webview fechava antes, os dados do cartão não eram preenchidos. Sem tentativa registrada, não há o que reprocessar; e como o fluxo não tinha retry, o usuário ficava olhando para um pedido pendente que ele não conseguia concluir de jeito nenhum." },
+          { h: "A evidência", p: "O padrão era volume baixo e impacto alto: uma fatia pequena do fluxo gerava uma proporção desproporcional de tickets de suporte e de intervenção manual da operação, com a abertura de chamados acelerando mês a mês. Levantei o caso cruzando os tickets de suporte com a observação do fluxo no ambiente de tecnologia, e projetei a curva contra o crescimento esperado de transações — o argumento não era o tamanho de hoje, era a inclinação." },
+          { h: "Por que doía mais do que parecia", p: "O prejuízo direto era receita não capturada e custo operacional recorrente. Mas o dano maior estava no status errado se espalhando: previsão e relatório contaminados, decisão comercial apoiada em número que não fecha. E havia o agravante do contexto — PIX e cartão estavam em fase de adoção, e é exatamente aí que a experiência precisa ser impecável para o método ganhar confiança." },
+          { h: "A solução e o risco que ela criava", p: "Propus um mecanismo de <strong>cancelamento automático por TTL</strong> para pedidos sem nenhuma tentativa, restrito a PIX e cartão online — nos demais métodos a tentativa pode legitimamente demorar a ser criada. O ponto fino do discovery foi reconhecer que a própria solução embute um risco: uma rotina que cancela sozinha <em>mascara</em> falhas reais da jornada. Por isso a proposta saiu acompanhada de visibilidade estruturada para a operação e de telemetria capaz de distinguir “abandono natural” de “falha de experiência”. Sem essa separação, o número melhora e o problema continua." },
+          { h: "Como ficou o discovery", p: "Shaping document, product brief e desenho de HLA, com os spikes já nomeados: definir o TTL ótimo a partir do comportamento real do usuário, decidir a razão de cancelamento exibida, validar com Ops e Suporte como o pedido cancelado aparece em dashboard, e confirmar a cobertura de telemetria. Foi um dos últimos discoveries que conduzi antes de sair." },
+          { h: "IA na área de produto", p: "Em paralelo, liderei a AI PMs Guild — iniciativa dedicada a levar IA para dentro da rotina de produto, com criação de prompts, treinamento de modelo e facilitação de workshops." }
         ]
       },
       en: {
         client: "BEES · AB InBev",
-        title: "Payment Rules and AI applied to backlog quality",
-        summary: "Two fronts: the payment rules engine of a global fintech, and a browser extension that scores product artifact quality with AI.",
+        title: "Payment Rules and the auto-cancel discovery",
+        summary: "Orders stuck forever in “pending payment” — not because the payment failed, but because it was never attempted at all.",
         sections: [
-          { h: "Payments", p: "I worked in the Payments division, owning Payment Rules — payment initialization, gateway integration, payment entity management and payment flow flexibility. Reporting directly to global leadership in New York, focused on reducing friction in the payment process and increasing operational efficiency." },
-          { h: "The scale problem", p: "In a program with many teams, the quality of product artifacts — initiative, epic, task, bug, spike — determines how much engineering can execute without rework. Reviewing that by hand doesn't scale, and a static checklist doesn't capture what makes a requirement good." },
-          { h: "What I built", p: "A browser extension running on top of the tracking tool that validates each artifact type's fields in real time, with <strong>AI-powered quality scoring</strong> and a side panel showing detailed results. Behind it, a versioned prompt library: templates per artifact type, summarization and release-note assistants, and index calculation frameworks for initiatives and epics." },
-          { h: "Adoption", p: "I led the AI PMs Guild, an initiative dedicated to leveraging AI inside the product organization — prompt creation, model training and workshop facilitation. The extension was the concrete piece that turned the AI conversation into a daily-use tool." }
+          { h: "The remit", p: "I worked in the Payments division owning Payment Rules — payment initialization, gateway integration, payment entity management and payment flow flexibility. Reporting directly to global leadership in New York. Day to day: delivery prioritization and coordination across the teams involved in each release." },
+          { h: "The problem", p: "Orders paid via PIX or online card could sit indefinitely in pending payment whenever <strong>no payment attempt ever came into existence</strong> — the QR didn't render, the webview closed first, the card details were never entered. With no attempt on record there's nothing to reprocess; and since the flow had no retry, the user was left staring at a pending order they simply could not complete." },
+          { h: "The evidence", p: "The pattern was low volume, high impact: a small slice of the flow generated a disproportionate share of support tickets and manual operations work, with ticket creation accelerating month over month. I built the case by cross-referencing support tickets with observation of the flow in the technology environment, and projected the curve against expected transaction growth — the argument wasn't today's size, it was the slope." },
+          { h: "Why it hurt more than it looked", p: "The direct loss was uncaptured revenue and recurring operational cost. But the larger damage was the wrong status propagating: contaminated forecasting and reporting, commercial decisions resting on a number that doesn't add up. And context made it worse — PIX and card were in an adoption phase, precisely when the experience has to be flawless for the method to earn trust." },
+          { h: "The solution, and the risk it introduced", p: "I proposed a <strong>TTL-based automatic cancellation</strong> for orders with no attempt at all, scoped to PIX and online card — with other methods the attempt can legitimately take longer to be created. The sharp part of the discovery was recognizing that the solution itself carries a risk: a routine that cancels on its own <em>masks</em> real journey failures. So the proposal shipped alongside structured visibility for Operations and telemetry able to tell “natural abandonment” from “experience failure”. Without that split, the number improves and the problem stays." },
+          { h: "Where the discovery landed", p: "Shaping document, product brief and HLA design, with the spikes already named: define the optimal TTL from real user behaviour, decide the cancellation reason shown, validate with Ops and Support how a cancelled order appears in reporting, and confirm telemetry coverage. It was one of the last discoveries I ran before leaving." },
+          { h: "AI inside the product org", p: "In parallel I led the AI PMs Guild — an initiative to bring AI into the product routine, covering prompt creation, model training and workshop facilitation." }
         ]
       }
     },
@@ -461,7 +467,7 @@ window.CONTENT = {
         { h: "Decisão", items: ["RICE e priorização", "Van Westendorp", "MaxDiff", "Benchmarking competitivo", "Business case"] },
         { h: "Dado", items: ["SQL", "Power BI", "Modelagem de métrica e KPI", "Baseline e apuração de ganho", "Qualidade e governança de dado"] },
         { h: "Execução", items: ["BPMN", "Modelo operacional", "Product Ops", "Gestão de incidente", "Ritos e cadência"] },
-        { h: "IA", items: ["Engenharia de prompt", "Biblioteca de prompts versionada", "Avaliação de qualidade por IA", "Enablement e guilds"] }
+        { h: "IA", items: ["Engenharia de prompt", "Treinamento de modelo", "Facilitação de workshop", "Enablement e guilds"] }
       ]
     },
     en: {
@@ -471,7 +477,7 @@ window.CONTENT = {
         { h: "Decision", items: ["RICE and prioritization", "Van Westendorp", "MaxDiff", "Competitive benchmarking", "Business case"] },
         { h: "Data", items: ["SQL", "Power BI", "Metric and KPI modeling", "Baseline and gain calculation", "Data quality and governance"] },
         { h: "Execution", items: ["BPMN", "Operating model", "Product Ops", "Incident management", "Rituals and cadence"] },
-        { h: "AI", items: ["Prompt engineering", "Versioned prompt libraries", "AI-based quality scoring", "Enablement and guilds"] }
+        { h: "AI", items: ["Prompt engineering", "Model training", "Workshop facilitation", "Enablement and guilds"] }
       ]
     }
   },
