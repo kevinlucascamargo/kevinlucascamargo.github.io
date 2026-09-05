@@ -381,7 +381,8 @@
             '<span class="tl__per">' + esc(per) + "</span></div>" +
           '<div class="tl__role">' + esc(x.role) + "</div>" +
           (x.note ? '<div class="tl__note">' + esc(x.note) + "</div>" : "") +
-          '<p class="tl__desc">' + esc(x.desc) + "</p>" + subs +
+          '<p class="tl__desc">' + esc(x.desc) + "</p>" +
+          (x.aside ? '<p class="tl__aside">' + esc(x.aside) + "</p>" : "") + subs +
         "</div></div>";
     }
     document.getElementById("work").innerHTML =

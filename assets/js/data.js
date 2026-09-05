@@ -141,17 +141,19 @@ window.CONTENT = {
     {
       org: "BEES · AB InBev",
       logo: "BEES",
-      period: "ago 2024 – jun 2026",
-      periodEn: "Aug 2024 – Jun 2026",
+      period: "ago 2024 – dez 2025",
+      periodEn: "Aug 2024 – Dec 2025",
       pt: {
         role: "Product Manager — Payments",
-        note: "Reporte à liderança global (Nova York)",
-        desc: "Responsável por Payment Rules: inicialização de pagamento, integração de gateway, gestão de entidades e flexibilização do fluxo. Liderei a AI PMs Guild, iniciativa de adoção de IA na área de produto."
+        note: "Alocação via Invillia · reporte à liderança global em Nova York",
+        desc: "Responsável por Payment Rules: inicialização de pagamento, integração de gateway, gestão de entidades e flexibilização do fluxo. Liderei a AI PMs Guild, iniciativa de adoção de IA na área de produto.",
+        aside: "Os meses finais se sobrepõem à entrada na NTT, em abril de 2025."
       },
       en: {
         role: "Product Manager — Payments",
-        note: "Reporting to global leadership (New York)",
-        desc: "Owned Payment Rules: payment initialization, gateway integration, payment entity management and payment flow flexibility. Led the AI PMs Guild, the company's product-side AI adoption initiative."
+        note: "Allocated through Invillia · reporting to global leadership in New York",
+        desc: "Owned Payment Rules: payment initialization, gateway integration, payment entity management and payment flow flexibility. Led the AI PMs Guild, the company's product-side AI adoption initiative.",
+        aside: "The final months overlap with joining NTT in April 2025."
       }
     },
     {

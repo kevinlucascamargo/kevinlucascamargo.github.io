@@ -258,6 +258,10 @@ strong { font-weight: 620; }
 }
 .sec--alt .tl__per { background: var(--bg-alt); }
 .tl__org { font-size: 18.5px; font-weight: 640; letter-spacing: -.018em; }
+.tl__aside {
+  margin: 10px 0 0; font-size: 13.5px; color: var(--muted); font-style: italic;
+  max-width: 68ch; padding-left: 13px; border-left: 2px solid var(--line);
+}
 .tl__subs { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .tl__subs li {
   display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 4px 14px;
